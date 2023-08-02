@@ -7,12 +7,28 @@ import { Fruits } from './fruits';
 })
 export class FruitsService {
 
-  apiURL: string = 'http://localhost/4200';
+  apiURL: string = 'http://localhost:3000/';
 
   constructor(private http: HttpClient) { }
 
   getAll(resource:string){
     return this.http.get<Fruits[]>(this.apiURL+ resource);
+  }
+
+  create(resource: string, payload: Fruits){
+    return this.http.post<Fruits>(this.apiURL+ resource, payload);
+  }
+
+  getById(resource:string, id:number){
+    return this.http.get<Fruits>(this.apiURL + resource + `/${id}`);
+  }
+
+  update(resource:string, payload: Fruits){
+    return this.http.post<Fruits>(this.apiURL + resource+ '/edit' + `/${payload.id}`, payload);
+  }
+
+  delete(resource: string, id:number){
+    return this.http.delete(this.apiURL + resource + `/${id}`);
   }
 
 }

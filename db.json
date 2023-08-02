@@ -1,10 +1,29 @@
 {
-  "fruits":[
+  "fruits": [
     {
-      "id":1,
+      "id": 1,
       "name": "cherry",
       "quantity": 100,
       "price": 25
+    },
+    {
+      "id": 2,
+      "name": "russell",
+      "quantity": 2,
+      "price": 23
+    },
+    {
+      "id": 3,
+      "name": "asdasdad",
+      "quantity": 123,
+      "price": 123
+    }
+  ],
+  "posts":[
+    {
+      "id":1,
+      "title":"Test Post 01",
+      "body": "Sample Test Post 01"
     }
   ]
 }

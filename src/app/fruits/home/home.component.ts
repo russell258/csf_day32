@@ -21,6 +21,11 @@ export class HomeComponent {
     });
   }
 
+  delete(id:number){
+    this.fruitService.delete('fruits',id).subscribe((data)=>{
+      this.allFruits=this.allFruits.filter(o =>o.id != id);
+    })
+  }
 
 
 }
