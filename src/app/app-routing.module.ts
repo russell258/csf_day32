@@ -15,8 +15,8 @@ const routes: Routes = [
   {path:'fruits/edit/:id', component:EditComponent},
   {path:'posts/home', component: PostListComponent},
   {path:'posts/create', component: PostCreateComponent},
-  {path:'posts/edit/edit:postId', component: PostEditComponent},
-  {path:'posts/details/:postId', component: PostDetailsComponent }
+  {path:'posts/edit/:id', component: PostEditComponent},
+  {path:'posts/details/:id', component: PostDetailsComponent }
 ];
 
 @NgModule({

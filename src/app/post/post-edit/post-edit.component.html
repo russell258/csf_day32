@@ -1,0 +1,24 @@
+<div class="container">
+  <h1> Edit Post </h1>
+  <hr>
+  <br>
+  <form>
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label for="title" class ="form-label">Title</label>
+          <input type="text" class = "form-control" name="title" [(ngModel)]="postObject.title">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label for="body" class ="form-label">Body</label>
+          <input type="text" class = "form-control" name="body" [(ngModel)]="postObject.body">
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" (click)="update()">Update</button>
+  </form>
+</div>

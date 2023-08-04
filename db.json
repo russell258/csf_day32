@@ -16,8 +16,13 @@
   "posts": [
     {
       "title": "meow",
-      "body": "meowmeow",
+      "body": "meow meow",
       "id": 1
+    },
+    {
+      "title": "hellooo",
+      "body": "world",
+      "id": 2
     }
   ]
 }
