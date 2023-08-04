@@ -34,9 +34,10 @@ export class EditComponent {
     })
   }
 
+  //there is no parameter in this update(), because this.fruitObject takes from above "get" method.
   update(){
     return this.fruitService.update('fruits',this.fruitObject).subscribe({
-      next:(data)=>{
+      next:()=>{
       this.router.navigate(['/fruits/home'])
     },
       error:(err)=>{
