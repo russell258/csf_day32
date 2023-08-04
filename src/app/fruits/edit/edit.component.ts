@@ -9,6 +9,7 @@ import { FruitsService } from '../fruits.service';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent {
+
   fruitObject: Fruits = {
     id:0,
     name:'',
@@ -36,7 +37,7 @@ export class EditComponent {
   update(){
     return this.fruitService.update('fruits',this.fruitObject).subscribe({
       next:(data)=>{
-      this.router.navigate(['/fruits/edit/'])
+      this.router.navigate(['/fruits/home'])
     },
       error:(err)=>{
         console.log(err)

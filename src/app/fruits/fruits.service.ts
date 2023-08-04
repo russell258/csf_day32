@@ -24,7 +24,7 @@ export class FruitsService {
   }
 
   update(resource:string, payload: Fruits){
-    return this.http.post<Fruits>(this.apiURL + resource+ '/edit' + `/${payload.id}`, payload);
+    return this.http.put(this.apiURL + resource + `/${payload.id}`, payload);
   }
 
   delete(resource: string, id:number){

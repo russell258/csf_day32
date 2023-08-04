@@ -10,14 +10,16 @@ import { PostService } from 'src/app/posts/post.service';
 })
 export class PostCreateComponent {
 
-  postForm: FormGroup;
+  postForm: FormGroup; //***step 1
 
+  // ***step 2: FormBuilder
   constructor(private postService: PostService, private router: Router, private fb: FormBuilder){}
 
   ngOnInit(): void{
     this.initializeForm();
   }
 
+  // *** step 3: initialize FormGroup object using Form Builder
   initializeForm(){
     this.postForm=this.fb.group({
       title: new FormControl(''),

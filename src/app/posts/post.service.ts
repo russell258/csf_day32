@@ -20,11 +20,15 @@ export class PostService {
   constructor(private http: HttpClient) { }
 
   getAll() : Observable<Post[]>{
-    return this.http.get<Post[]>(this.apiURL);
+    return this.http.get<Post[]>(this.apiURL).pipe(
+      catchError(this.errorHandler)
+    );
   }
 
   getById(id:number) : Observable<Post>{
-    return this.http.get<Post>(this.apiURL+`/${id}`);
+    return this.http.get<Post>(this.apiURL+`/${id}`).pipe(
+      catchError(this.errorHandler)
+    );
   }
 
   create(post:Post): Observable<Post>{
@@ -34,11 +38,15 @@ export class PostService {
   }
 
   update(id:number, post:Post){
-    return this.http.put<Post>(this.apiURL + `/${id}`, post, this.httpOptions);
+    return this.http.put<Post>(this.apiURL + `/${id}`, post, this.httpOptions).pipe(
+      catchError(this.errorHandler)
+    );
   }
 
   delete(id: number){
-    return this.http.delete<Post>(this.apiURL+`/${id}`, this.httpOptions);
+    return this.http.delete<Post>(this.apiURL+`/${id}`, this.httpOptions).pipe(
+      catchError(this.errorHandler)
+    );
   }
 
   errorHandler(error){
