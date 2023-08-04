@@ -2,18 +2,26 @@
   <h1>Create New Post</h1>
   <br><br>
 
-  <a routerLink="/posts/home" class="btn btn-primary">Back</a>
+  <a [routerLink]="['/posts/home']" class="btn btn-light">Back</a>
 
-  <form>
+  <form [formGroup]="postForm" (ngSubmit)="createPost()">
     <div class="mb-3">
       <label for="title" class="form-label">Title</label>
-      <input type="text" name = "title" class="form-control">
+      <input type="text" name = "title" class="form-control" formControlName="title">
+      <div *ngIf="postForm.get('title').hasError('required')" class="alert alert-danger">
+        Please enter a title (Mandatory)
+      </div>
     </div>
+
     <div class="mb-3">
       <label for="content" class="form-label">Content</label>
-      <input type="text" name="body" class="form-control">
+
+      <input type="text" name="body" class="form-control" formControlName="body">
+      <div *ngIf="postForm.get('body').hasError('required')" class="alert alert-danger">
+        Please enter a post content (Mandatory)
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary">Create</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!postForm.valid">Create</button>
   </form>
 
 </div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PostService } from 'src/app/posts/post.service';
 
@@ -22,13 +22,16 @@ export class PostCreateComponent {
   // *** step 3: initialize FormGroup object using Form Builder
   initializeForm(){
     this.postForm=this.fb.group({
-      title: new FormControl(''),
-      body: new FormControl('')
+      title: new FormControl('',[Validators.required]),
+      body: new FormControl('',[Validators.required])
     });
   }
 
   createPost(){
-    console.log('createPost: '+this.postForm);
+    console.log('createPost: '+JSON.stringify(this.postForm.value));
+    this.postService.create(this.postForm.value).subscribe((response:any) => {
+      this.router.navigateByUrl('/posts/home');
+    })
   }
 
 }
